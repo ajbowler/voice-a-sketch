@@ -22,6 +22,7 @@
 		<link rel="import" href="bower_components/paper-button/paper-button.html">
 		<link rel="import" href="canvas-sketch.html">
 		<script src="js/vendor/modernizr-2.8.3.min.js"></script>
+		<script src="js/voice-a-sketch.js"></script>
 		<link rel="stylesheet" type="text/css" href="">
 	</head>
 	<body class="fullbleed layout vertical">
@@ -35,8 +36,8 @@
 			<div class="content">
 				<canvas-sketch></canvas-sketch>
 				<div id="controls">
-					<paper-button raised class="start accent-color">START</paper-button>
-					<paper-button raised class="stop accent-color">STOP</paper-button>
+					<paper-button raised class="start accent-color" onclick="recognition.start()">START</paper-button>
+					<paper-button raised class="stop accent-color" onclick="recognition.stop()">STOP</paper-button>
 				</div>
 			</div>
 		</paper-header-panel>
