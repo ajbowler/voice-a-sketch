@@ -2,9 +2,12 @@
   "name": "voice-a-sketch",
   "version": "0.0.0",
   "authors": [
-    "Andrew Bowler <ajbowler@iastate.edu>"
+    "Andrew Bowler <ajbowler@iastate.edu>",
+    "Thomas Kearney <thomasnkearney@gmail.com>",
+    "Michael Phippen <phippen@iastate.edu>",
+    "Shuyang Sun <ssun@iastate.edu>"
   ],
-  "license": "MIT",
+  "license": "GNU",
   "ignore": [
     "**/.*",
     "node_modules",
