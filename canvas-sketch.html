@@ -31,6 +31,9 @@
       } else if (command.indexOf("South") > -1 || command.indexOf("south") > -1) {
         console.log(command);       
         sketch.draw("South");
+      } else if (command.indexOf("Stop") > -1 || command.indexOf("stop") > -1) {
+        console.log(command);
+        sketch.draw("Stop");
       }
         else { sketch.draw("draw"); }
     };
@@ -40,31 +43,36 @@
 
       doDraw: false,
 
-
+      self: this,
 
       draw: function(direction) {
         // 'draw' just draws at the current position (as if to begin drawing)
         // otherwise the proper position is changed and the canvas is drawn in the new location
+        var drawing;
+
         switch(direction) {
           case 'draw':
-            context.fillRect(x, y, 5, 5);
+            drawing = setInterval(function() { context.fillRect(x, y, 5, 5); }, 30);
             console.log("Drawing " + direction);
             break;
           case 'North':
-            context.fillRect(x, --y, 5, 5);
+            drawing = setInterval(function() { context.fillRect(x, --y, 5, 5); }, 30);
             console.log("Drawing " + direction);
             break;
           case 'South':
-            context.fillRect(x, ++y, 5, 5);
+            drawing = setInterval(function() { context.fillRect(x, ++y, 5, 5); }, 30);
             console.log("Drawing " + direction);
             break;
           case 'East':
-            context.fillRect(++x, y, 5, 5);
+            drawing = setInterval(function() { context.fillRect(++x, y, 5, 5); }, 30);
             console.log("Drawing " + direction);
             break;
           case 'West':
-            context.fillRect(--x, y, 5, 5);
+            drawing = setInterval(function() { context.fillRect(--x, y, 5, 5); }, 30);
             console.log("Drawing " + direction);
+            break;
+          case 'Stop':
+            clearInterval(drawing);
             break;
         }
       },
@@ -73,12 +81,6 @@
         canvas = this.$.myCanvas;
         context = canvas.getContext('2d');
         context.fillStyle = 'black';
-
-        var self = this;
-        setInterval(function() {
-          self.draw();
-        }, 15);
-
       }
     });
   </script>

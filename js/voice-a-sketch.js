@@ -6,7 +6,6 @@ recognition.maxAlternative = 1;
 
 recognition.onresult = function(event) {
   // make sure it isn't fucked first
-  console.log("Got a result");
   if (typeof(event.results) == "undefined") {
     recognition.stop();
     return;
