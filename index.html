@@ -12,6 +12,7 @@
 
 		<link rel="stylesheet" href="css/normalize.css">
 		<link rel="stylesheet" href="css/main.css">
+		<link rel="stylesheet" media="only screen and (min-width:50px) and (max-width:700px)" href="css/main_small.css">
 		<script src="js/vendor/modernizr-2.8.3.min.js"></script>
 
 		<!-- Polymer Imports -->
@@ -31,14 +32,14 @@
 		<![endif]-->
 
 		<!-- Add your site or application content here -->
-		<paper-header-panel class="blue flex" mode="waterfall">
-			<div class="paper-header default-primary-color">Voice A Sketch</div>
+		<paper-header-panel class="flex light-primary-color" mode="waterfall">
+			<div class="paper-header dark-primary-color">Voice A Sketch</div>
 			<div class="content">
+				<canvas-sketch></canvas-sketch>
 				<div id="controls">
 					<paper-button raised class="start accent-color">START</paper-button>
 					<paper-button raised class="stop accent-color">STOP</paper-button>
 				</div>
-				<canvas-sketch></canvas-sketch>
 			</div>
 		</paper-header-panel>
 
