@@ -16,6 +16,7 @@
     "tests"
   ],
   "dependencies": {
+    "paper-button": "PolymerElements/paper-button#~1.0.4",
     "paper-header-panel": "PolymerElements/paper-header-panel#~1.0.5",
     "polymer": "Polymer/polymer#1.1.0",
     "webspeech": "*"

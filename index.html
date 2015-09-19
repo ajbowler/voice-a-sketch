@@ -16,8 +16,9 @@
 
 		<!-- Polymer Imports -->
 		<link rel="import" href="bower_components/polymer/polymer.html">
-		<link rel="import" href="bower_components/paper-header-panel/paper-header-panel.html">
 		<link rel="import" href="bower_components/iron-flex-layout/iron-flex-layout.html">
+		<link rel="import" href="bower_components/paper-header-panel/paper-header-panel.html">
+		<link rel="import" href="bower_components/paper-button/paper-button.html">
 		<link rel="import" href="canvas-sketch.html">
 		<script src="js/vendor/modernizr-2.8.3.min.js"></script>
 		<link rel="stylesheet" type="text/css" href="">
@@ -30,9 +31,13 @@
 		<![endif]-->
 
 		<!-- Add your site or application content here -->
-		<paper-header-panel class="blue flex" mode="waterfall-tall">
+		<paper-header-panel class="blue flex" mode="waterfall">
 			<div class="paper-header">Voice A Sketch</div>
 			<div class="content">
+				<div id="controls">
+					<paper-button raised>START</paper-button>
+					<paper-button raised>STOP</paper-button>
+				</div>
 				<canvas-sketch></canvas-sketch>
 			</div>
 		</paper-header-panel>

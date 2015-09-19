@@ -17,11 +17,6 @@ paper-header-panel {
 	font-size: 20px;
 }
 
-.paper-header.tall:not([style-scope]):not(.style-scope) {
-    height: 120px;
-    line-height: 120px;
-}
-
 div.content {
 	color: #000;
 	text-align: center;
@@ -31,10 +26,21 @@ div.content {
 
 canvas-sketch {
     width: 90%; 
-    height: 80vh;
-    margin: 200px auto 20px auto;
+    height: 70vh;
+    margin: 20px auto 20px auto;
     border: 1px solid gray;
     overflow: hidden;
     background: #fff;
+}
+
+div#controls {
+    margin: 20px auto 20px auto;
+    width: 100%;
+}
+
+paper-button {
+    display: inline-block;
+    width: 100px;
+    margin: 20px 100px 20px 100px;
 }
 
