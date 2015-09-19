@@ -5,11 +5,14 @@
     <style>
       :host {
         display: block;
+        border: 1px solid black;
       }
     </style>
-    <div>{{greeting}}</div>
+    <div>
+      <canvas width="200" height="200" id="myCanvas"></canvas>
+    </div>
   </template>
-  
+
   <script>
     Polymer({
       is: 'hello-world',
@@ -19,6 +22,13 @@
           type: String,
           value: "Hello, world!"
         }
+      },
+
+      ready: function() {
+        var canvas = this.$.myCanvas;
+        var context = canvas.getContext('2d');
+        context.fillStyle = "FF0000";
+        context.fillRect(0, 0, 200, 200);
       }
     });
   </script>
