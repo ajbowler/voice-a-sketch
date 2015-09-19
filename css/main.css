@@ -29,10 +29,12 @@ div.content {
 	height: 100vh;
 }
 
-div#canvas {
+canvas-sketch {
     width: 90%; 
     height: 80vh;
-    margin: 100px auto 20px auto;
-    background: red;
+    margin: 200px auto 20px auto;
+    border: 1px solid gray;
+    overflow: hidden;
+    background: #fff;
 }
 
