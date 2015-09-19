@@ -1,0 +1,41 @@
+<dom-module id="canvas-sketch">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+    </style>
+    <div>
+      <canvas width="1000" height="1000" id="myCanvas"></canvas>
+    </div>
+  </template>
+  <script>
+    var x = 0;
+    var y = 0;
+    var canvas;
+    var context;
+
+    Polymer({
+      is: 'canvas-sketch',
+
+      doDraw: false,
+
+      draw: function() {
+        context.fillRect(x, y, 5, 5);
+        x++;
+        y++;
+      },
+
+      ready: function() {
+        canvas = this.$.myCanvas;
+        context = canvas.getContext('2d');
+        context.fillStyle = 'red';
+
+        var self = this;
+        setInterval(function() {
+          self.draw();
+        }, 15);
+      }
+    });
+  </script>
+</dom-module>
