@@ -17,15 +17,20 @@
 
     // looks to see if a direction is in a command and calls draw on it.
     function drawDirection(command) {
+      console.log("command: " + command);
       var sketch = document.querySelector('canvas-sketch');
-      if ( command.indexOf("west") > -1 ) {
-        sketch.draw("west");
-      } else if (command.indexOf("east") > -1) {
-        sketch.draw("east");
-      } else if (command.indexOf("north") > -1) {
-        sketch.draw("north");
-      } else if (command.indexOf("south") > -1) {
-        sketch.draw("south");
+      if ( command.indexOf("West") > -1 || command.indexOf("west") > -1) {
+        console.log(command);
+        sketch.draw("West");
+      } else if (command.indexOf("East") > -1 || command.indexOf("east") > -1) {
+        console.log(command);
+        sketch.draw("East");
+      } else if (command.indexOf("North") > -1 || command.indexOf("north") > -1) {
+        console.log(command);
+        sketch.draw("North");
+      } else if (command.indexOf("South") > -1 || command.indexOf("south") > -1) {
+        console.log(command);       
+        sketch.draw("South");
       }
         else { sketch.draw("draw"); }
     };
@@ -43,18 +48,23 @@
         switch(direction) {
           case 'draw':
             context.fillRect(x, y, 5, 5);
+            console.log("Drawing " + direction);
             break;
-          case 'north':
+          case 'North':
             context.fillRect(x, --y, 5, 5);
+            console.log("Drawing " + direction);
             break;
-          case 'south':
+          case 'South':
             context.fillRect(x, ++y, 5, 5);
+            console.log("Drawing " + direction);
             break;
-          case 'east':
+          case 'East':
             context.fillRect(++x, y, 5, 5);
+            console.log("Drawing " + direction);
             break;
-          case 'west':
+          case 'West':
             context.fillRect(--x, y, 5, 5);
+            console.log("Drawing " + direction);
             break;
         }
       },
