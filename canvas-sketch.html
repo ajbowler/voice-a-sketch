@@ -20,10 +20,26 @@
 
       doDraw: false,
 
-      draw: function() {
-        context.fillRect(x, y, 5, 5);
-        x++;
-        y++;
+      draw: function(direction) {
+        // 'draw' just draws at the current position (as if to begin drawing)
+        // otherwise the proper position is changed and the canvas is drawn in the new location
+        switch(direction) {
+          case 'draw':
+            context.fillRect(x, y, 5, 5);
+            break;
+          case 'up':
+            context.fillRect(x, --y, 5, 5);
+            break;
+          case 'down':
+            context.fillRect(x, ++y, 5, 5);
+            break;
+          case 'right':
+            context.fillRect(++x, y, 5, 5);
+            break;
+          case 'left':
+            context.fillRect(--x, y, 5, 5);
+            break;
+        }
       },
 
       ready: function() {
