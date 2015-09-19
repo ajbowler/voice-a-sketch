@@ -1,12 +1,9 @@
 
+@import url("palette.css");
 
 /* Custom Layouts */
 paper-header-panel {
 	height: 100vh;
-}
-
-.blue .paper-header:not([style-scope]):not(.style-scope) {
-    background-color: #03a9f4;
 }
 
 .paper-header:not([style-scope]):not(.style-scope) {
@@ -20,7 +17,6 @@ paper-header-panel {
 div.content {
 	color: #000;
 	text-align: center;
-	background: linear-gradient(white, #b3e5fc);
 	height: 100vh;
 }
 
@@ -42,5 +38,6 @@ paper-button {
     display: inline-block;
     width: 100px;
     margin: 20px 100px 20px 100px;
+    color: #fff;
 }
 
