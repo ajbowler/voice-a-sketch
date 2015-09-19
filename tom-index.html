@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+	<title></title>
+</head>
+	<body>
+
+		<script>
+			var recognition = new webkitSpeechRecognition();
+			recognition.continuous = true;
+
+			recognition.lang = "en-US";
+			recognition.maxAlternatives = 1;
+
+			recognition.onstart = function(){
+
+			}
+
+			recognition.onend = function(){
+
+			}
+
+			recognition.onresult = function(event){
+				if(typeof(event.results) == "undefined") {
+					recognition.stop();
+					return;
+				}
+
+				for(var i = event.resultIndex; i < event.results.length; i++){
+					if(event.results[i].isFinal){
+						console.log("final reults: " + event.results[i][0].transcript);
+					}else{
+						console.log("interim results: " + event.results[i][0].transcript);
+					}
+				}
+			}
+
+			function startButton(event){
+				recognition.start();
+				start_img.src = "https://speechlogger.appspot.com/images/micslash2.png";
+			}
+
+			function stopButton(event){
+				recognition.stop();
+			}
+
+		</script>
+
+		<div onmousedown="startButton(event);" onmouseup="stopButton(event)"><img alt="Start" id="start_img" src="https://speechlogger.appspot.com/images/micoff2.png"></div>
+
+	</body>
+</html>
