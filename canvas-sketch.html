@@ -17,16 +17,17 @@
 
     // looks to see if a direction is in a command and calls draw on it.
     function drawDirection(command) {
-      if ( command.indexOf("left") > -1 ) {
-        draw("left");
-      } else if (command.indexOf("right") > -1) {
-        draw("right");
-      } else if (command.indexOf("up") > -1) {
-        draw("up");
-      } else if (command.indexOf("down") > -1) {
-        draw("down");
+      var sketch = document.querySelector('canvas-sketch');
+      if ( command.indexOf("west") > -1 ) {
+        sketch.draw("west");
+      } else if (command.indexOf("east") > -1) {
+        sketch.draw("east");
+      } else if (command.indexOf("north") > -1) {
+        sketch.draw("north");
+      } else if (command.indexOf("south") > -1) {
+        sketch.draw("south");
       }
-        else { draw("draw"); }
+        else { sketch.draw("draw"); }
     };
 
     Polymer({
@@ -43,16 +44,16 @@
           case 'draw':
             context.fillRect(x, y, 5, 5);
             break;
-          case 'up':
+          case 'north':
             context.fillRect(x, --y, 5, 5);
             break;
-          case 'down':
+          case 'south':
             context.fillRect(x, ++y, 5, 5);
             break;
-          case 'right':
+          case 'east':
             context.fillRect(++x, y, 5, 5);
             break;
-          case 'left':
+          case 'west':
             context.fillRect(--x, y, 5, 5);
             break;
         }
