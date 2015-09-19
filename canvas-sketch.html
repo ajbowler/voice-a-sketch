@@ -22,36 +22,35 @@
     recognition.maxAlternative = 1;
 
     // when the app comes up with some wurds
-    recognition.onresult = function(event){
+    recognition.onresult = function(event) {
       // make sure it isn't fucked first
-      if(typeof(event.results) == "undefined"){
+      if (typeof(event.results) == "undefined") {
         recognition.stop();
         return;
       }
 
-      for(var i = event.resultIndex; i < event.results.length; i++){
+      for (var i = event.resultIndex; i < event.results.length; i++) {
         // check the callback
-        if(event.results[i].isFinal){
+        if (event.results[i].isFinal) {
           drawDirection(even.results[i][0].transcript);
-        }else{
+        } else {
           drawDirection(even.results[i][0].transcript);
         }
       }
     };
 
     // looks to see if a direction is in a command and calls draw on it.
-    function drawDirection(command){
-      if( command.indexOf("left") > -1 ){
+    function drawDirection(command) {
+      if ( command.indexOf("left") > -1 ) {
         draw("left");
-      }else if(command.indexOf("right") > -1){
+      } else if (command.indexOf("right") > -1) {
         draw("right");
-      }else if(command.indexOf("up") > -1){
+      } else if (command.indexOf("up") > -1) {
         draw("up");
-      }else if(command.indexOf("down") > -1){
+      } else if (command.indexOf("down") > -1) {
         draw("down");
       }
-      else{draw("draw");
-      }
+        else { draw("draw"); }
     };
 
     Polymer({
