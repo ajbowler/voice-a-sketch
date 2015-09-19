@@ -45,34 +45,38 @@
 
       self: this,
 
+      // Interval drawing
+      drawing: 0,
+
       draw: function(direction) {
         // 'draw' just draws at the current position (as if to begin drawing)
         // otherwise the proper position is changed and the canvas is drawn in the new location
-        var drawing;
 
         switch(direction) {
           case 'draw':
-            drawing = setInterval(function() { context.fillRect(x, y, 5, 5); }, 30);
-            console.log("Drawing " + direction);
+            self.drawing = setInterval(function() { context.fillRect(x, y, 5, 5); }, 30);
+            console.log(drawing);
             break;
           case 'North':
-            drawing = setInterval(function() { context.fillRect(x, --y, 5, 5); }, 30);
-            console.log("Drawing " + direction);
+            self.drawing = setInterval(function() { context.fillRect(x, --y, 5, 5); }, 30);
+            console.log(drawing);
             break;
           case 'South':
-            drawing = setInterval(function() { context.fillRect(x, ++y, 5, 5); }, 30);
-            console.log("Drawing " + direction);
+            self.drawing = setInterval(function() { context.fillRect(x, ++y, 5, 5); }, 30);
+            console.log(drawing);
             break;
           case 'East':
-            drawing = setInterval(function() { context.fillRect(++x, y, 5, 5); }, 30);
-            console.log("Drawing " + direction);
+            self.drawing = setInterval(function() { context.fillRect(++x, y, 5, 5); }, 30);
+            console.log(drawing);
             break;
           case 'West':
-            drawing = setInterval(function() { context.fillRect(--x, y, 5, 5); }, 30);
-            console.log("Drawing " + direction);
+            self.drawing = setInterval(function() { context.fillRect(--x, y, 5, 5); }, 30);
+            console.log(drawing);
             break;
           case 'Stop':
-            clearInterval(drawing);
+            console.log("Stopping " + self.drawing);
+            clearInterval(self.drawing);
+            console.log("Stopped.");
             break;
         }
       },
