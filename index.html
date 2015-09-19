@@ -7,22 +7,34 @@
 		<meta name="description" content="">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 
-		<link rel="apple-touch-icon" href=""> <!-- Add favicon -->
+		<link rel="apple-touch-icon" href="apple-touch-icon.png"> <!-- Add favicon -->
 		<!-- Place favicon.ico in the root directory -->
-
-		<!-- <link rel="stylesheet" href="css/normalize.css">
+		
+		<link rel="stylesheet" href="css/normalize.css">
 		<link rel="stylesheet" href="css/main.css">
-		<script src="js/vendor/modernizr-2.8.3.min.js"></script> -->
+		<script src="js/vendor/modernizr-2.8.3.min.js"></script>
+
+		<!-- Polymer Imports -->
+		<link rel="import" href="bower_components/polymer/polymer.html">
+		<link rel="import" href="bower_components/paper-header-panel/paper-header-panel.html">
+		<link rel="import" href="bower_components/iron-flex-layout/iron-flex-layout.html">
+		<link rel="import" href="canvas-sketch.html">
+		<script src="js/vendor/modernizr-2.8.3.min.js"></script>
 
 		<link rel="import" href="hello-world.html">
 	</head>
-	<body>
+	<body class="fullbleed layout vertical">
 		<!--[if lt IE 8]>
 			<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 		<![endif]-->
 
 		<!-- Add your site or application content here -->
-		<hello-world></hello-world>
+		<paper-header-panel mode="waterfall-tall">
+			<div class="paper-header">Voice A Sketch</div>
+			<div class="content">
+				<canvas-sketch></canvas-sketch>
+			</div>
+		</paper-header-panel>
 
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 		<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.3.min.js"><\/script>')</script>
