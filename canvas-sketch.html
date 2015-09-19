@@ -15,10 +15,48 @@
     var canvas;
     var context;
 
+     // Initialize variable that listens to voice
+    var recognition = new webkitSpeechRecognition();
+
+      // when the app comes up with some wurds
+      recognition.onresult = function(event){
+        // make sure it isn't fucked first
+        if(typeof(event.results) == "undefined"){
+          recognition.stop();
+          return;
+        }
+
+        for(var i = event.resultIndex; i < event.results.length; i++){
+          // check the callback
+          if(event.results[i].isFinal){
+            drawDirection(even.results[i][0].transcript);
+          }else{
+            drawDirection(even.results[i][0].transcript);
+          }
+        }
+      }
+
+      // looks to see if a direction is in a command and calls draw on it.
+      drawDirection: function(command){
+        if( command.indexOf("left") > -1 ){
+          draw("left");
+        }else if(command.indexOf("right") > -1){
+          draw("right");
+        }else if(command.indexOf("up") > -1){
+          draw("up");
+        }else if(command.indexOf("down") > -1){
+          draw("down");
+        }
+        else{draw("draw");
+        }
+      }
+
     Polymer({
       is: 'canvas-sketch',
 
       doDraw: false,
+
+
 
       draw: function(direction) {
         // 'draw' just draws at the current position (as if to begin drawing)
@@ -51,6 +89,11 @@
         setInterval(function() {
           self.draw();
         }, 15);
+
+        recognition.continuous = true;
+        recognition.lang = "en-US";
+        recognition.maxAlternative = 1;
+
       }
     });
   </script>
