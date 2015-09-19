@@ -17,6 +17,7 @@
   ],
   "dependencies": {
     "paper-header-panel": "PolymerElements/paper-header-panel#~1.0.5",
-    "polymer": "Polymer/polymer#1.1.0"
+    "polymer": "Polymer/polymer#1.1.0",
+    "webspeech": "*"
   }
 }
