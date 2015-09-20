@@ -34,8 +34,16 @@
       } else if (command.indexOf("Stop") > -1 || command.indexOf("stop") > -1) {
         console.log(command);
         sketch.draw("Stop");
-      }
-        else { sketch.draw("draw"); }
+      } else if (command.indexOf("Clear") > -1 || command.indexOf("clear") > -1) {
+        console.log(command);
+        sketch.draw("Clear");
+      } else { sketch.draw("draw"); }
+    };
+
+    function wipe() {
+      context.clearRect(0, 0, canvas.width, canvas.height);
+      x = 500;
+      y = 250;
     };
 
     Polymer({
@@ -54,22 +62,27 @@
 
         switch(direction) {
           case 'draw':
+            clearInterval(self.drawing);
             self.drawing = setInterval(function() { context.fillRect(x, y, 5, 5); }, 30);
             console.log(drawing);
             break;
           case 'North':
+            clearInterval(self.drawing);
             self.drawing = setInterval(function() { context.fillRect(x, --y, 5, 5); }, 30);
             console.log(drawing);
             break;
           case 'South':
+            clearInterval(self.drawing);
             self.drawing = setInterval(function() { context.fillRect(x, ++y, 5, 5); }, 30);
             console.log(drawing);
             break;
           case 'East':
+            clearInterval(self.drawing);
             self.drawing = setInterval(function() { context.fillRect(++x, y, 5, 5); }, 30);
             console.log(drawing);
             break;
           case 'West':
+            clearInterval(self.drawing);          
             self.drawing = setInterval(function() { context.fillRect(--x, y, 5, 5); }, 30);
             console.log(drawing);
             break;
@@ -78,6 +91,12 @@
             clearInterval(self.drawing);
             console.log("Stopped.");
             break;
+          case 'Clear': {
+            console.log("Clearing board");
+            clearInterval(self.drawing);
+            wipe();
+            console.log("Cleared");
+          }
         }
       },
 
