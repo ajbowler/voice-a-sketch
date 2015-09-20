@@ -24,10 +24,27 @@ div.content {
 
 canvas-sketch {
     height: 70vh;
-    margin: 40px auto 20px auto;
+    margin: 40px auto 20px 0;
     overflow: hidden;
     background: #fff;
-    border-radius: 10px;
+    border-radius: 3px;
+}
+
+div.drawingSection {
+    display: inline-block;
+    width: 70%;
+    margin: 0 auto 0 0;
+}
+
+div.textSection {
+    border-radius: 3px;
+    display: inline-block;
+    background: #fff;
+    margin: 40px 0 20px auto;
+    width: 20%;
+    height: 76vh;
+    float: right;
+    padding: 10px;
 }
 
 div#controls {

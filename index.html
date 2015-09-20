@@ -34,11 +34,14 @@
 		<paper-header-panel class="flex light-primary-color" mode="waterfall">
 			<div class="paper-header dark-primary-color">Voice A Sketch</div>
 			<div class="content">
-				<canvas-sketch></canvas-sketch>
-				<div id="controls">
-					<paper-button raised class="start accent-color" onclick="recognition.start()">START</paper-button>
-					<paper-button raised class="stop accent-color" onclick="recognition.stop()">STOP</paper-button>
+				<div class="drawingSection">
+					<canvas-sketch></canvas-sketch>
+					<div id="controls">
+						<paper-button raised class="start accent-color" onclick="recognition.start()">START</paper-button>
+						<paper-button raised class="stop accent-color" onclick="recognition.stop()">STOP</paper-button>
+					</div>
 				</div>
+				<div class="textSection"></div>
 			</div>
 		</paper-header-panel>
 
