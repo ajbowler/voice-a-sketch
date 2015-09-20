@@ -18,7 +18,6 @@ div.content {
 	text-align: center;
 	height: 100vh;
     width: 90%;
-    max-width: 1000px;
     margin: 0 auto 0 auto;
 }
 
@@ -30,21 +29,34 @@ canvas-sketch {
     border-radius: 3px;
 }
 
+div.tutorial {
+    border-radius: 3px;
+    display: inline-block;
+    margin: 40px auto 20px 0;
+    width: 20%;
+    height: 76vh;
+    float: left;
+    padding: 10px; 
+    color: #fff;
+    line-height: 2em;
+}
+
 div.drawingSection {
     display: inline-block;
-    width: 70%;
-    margin: 0 auto 0 0;
+    width: 50%;
+    margin: 0 auto 0 auto;
 }
 
 div.textSection {
     border-radius: 3px;
     display: inline-block;
-    background: #fff;
     margin: 40px 0 20px auto;
     width: 20%;
     height: 76vh;
     float: right;
     padding: 10px;
+    color: #fff;
+    line-height: 2em;
 }
 
 div#controls {

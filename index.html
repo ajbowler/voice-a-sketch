@@ -34,6 +34,12 @@
 		<paper-header-panel class="flex light-primary-color" mode="waterfall">
 			<div class="paper-header dark-primary-color">Voice A Sketch</div>
 			<div class="content">
+				<div class="tutorial default-primary-color">
+					Start Drawing: DRAW<br>
+					Stop Drawing: STOP<br>
+					Change Directions: NORTH, SOUTH, WEST, EAST<br>
+					Clear Panel: CLEAR<br>
+				</div>
 				<div class="drawingSection">
 					<canvas-sketch></canvas-sketch>
 					<div id="controls">
@@ -41,7 +47,7 @@
 						<paper-button raised class="stop accent-color" onclick="recognition.stop()">STOP</paper-button>
 					</div>
 				</div>
-				<div class="textSection"></div>
+				<div class="textSection default-primary-color"></div>
 			</div>
 		</paper-header-panel>
 
