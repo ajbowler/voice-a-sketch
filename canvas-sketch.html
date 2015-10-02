@@ -1,0 +1,125 @@
+<dom-module id="canvas-sketch">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+    </style>
+    <div>
+      <canvas width="650" height="500" id="myCanvas"></canvas>
+    </div>
+  </template>
+  <script>
+    var x = 325;
+    var y = 250;
+    var canvas;
+    var context;
+
+    // looks to see if a direction is in a command and calls draw on it.
+    function drawDirection(command) {
+      console.log("command: " + command);
+      var sketch = document.querySelector('canvas-sketch');
+      if ( command.indexOf("West") > -1 || command.indexOf("west") > -1) {
+        console.log(command);
+        sketch.draw("West");
+      } else if (command.indexOf("East") > -1 || command.indexOf("east") > -1) {
+        console.log(command);
+        sketch.draw("East");
+      } else if (command.indexOf("North") > -1 || command.indexOf("north") > -1) {
+        console.log(command);
+        sketch.draw("North");
+      } else if (command.indexOf("South") > -1 || command.indexOf("south") > -1) {
+        console.log(command);       
+        sketch.draw("South");
+      } else if (command.indexOf("Stop") > -1 || command.indexOf("stop") > -1) {
+        console.log(command);
+        sketch.draw("Stop");
+      } else if (command.indexOf("Clear") > -1 || command.indexOf("clear") > -1) {
+        console.log(command);
+        sketch.draw("Clear");
+      } else { sketch.draw("Draw"); }
+    };
+
+    function printCommand(command) {
+      var span = document.createElement("span");
+      var text = document.createTextNode(command + " ");
+      span.appendChild(text);
+      document.getElementById("drawCommands").appendChild(span);
+    };
+
+    function wipe() {
+      context.clearRect(0, 0, canvas.width, canvas.height);
+      x = 325;
+      y = 250;
+    };
+
+    Polymer({
+      is: 'canvas-sketch',
+
+      doDraw: false,
+
+      self: this,
+
+      // Interval drawing
+      drawing: 0,
+
+      draw: function(direction) {
+        // 'draw' just draws at the current position (as if to begin drawing)
+        // otherwise the proper position is changed and the canvas is drawn in the new location
+
+        switch(direction) {
+          case 'Draw':
+            clearInterval(self.drawing);
+            self.drawing = setInterval(function() { context.fillRect(x, y, 5, 5); }, 30);
+            console.log(drawing);
+            printCommand(direction);
+            break;
+          case 'North':
+            clearInterval(self.drawing);
+            self.drawing = setInterval(function() { context.fillRect(x, --y, 5, 5); }, 30);
+            console.log(drawing);
+            printCommand(direction);
+            break;
+          case 'South':
+            clearInterval(self.drawing);
+            self.drawing = setInterval(function() { context.fillRect(x, ++y, 5, 5); }, 30);
+            console.log(drawing);
+            printCommand(direction);
+            break;
+          case 'East':
+            clearInterval(self.drawing);
+            self.drawing = setInterval(function() { context.fillRect(++x, y, 5, 5); }, 30);
+            console.log(drawing);
+            printCommand(direction);
+            break;
+          case 'West':
+            clearInterval(self.drawing);          
+            self.drawing = setInterval(function() { context.fillRect(--x, y, 5, 5); }, 30);
+            console.log(drawing);
+            printCommand(direction);
+            break;
+          case 'Stop':
+            console.log("Stopping " + self.drawing);
+            clearInterval(self.drawing);
+            console.log("Stopped.");
+            printCommand(direction);
+            break;
+          case 'Clear': {
+            console.log("Clearing board");
+            clearInterval(self.drawing);
+            wipe();
+            console.log("Cleared");
+            printCommand(direction);
+            break;
+          }
+        }
+      },
+
+      ready: function() {
+        canvas = this.$.myCanvas;
+        context = canvas.getContext('2d');
+        context.fillStyle = 'black';
+      }
+    });
+  </script>
+</dom-module>

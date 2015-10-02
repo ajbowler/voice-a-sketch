@@ -1,0 +1,80 @@
+@import url("palette.css");
+
+/* Custom Layouts */
+paper-header-panel {
+	height: 100vh;
+}
+
+.paper-header:not([style-scope]):not(.style-scope) {
+	height: 60px;
+	text-align: center;
+	line-height: 60px;
+	color: #fff;
+	font-size: 20px;
+}
+
+div.content {
+	color: #000;
+	text-align: center;
+	height: 100vh;
+    width: 90%;
+    margin: 0 auto 0 auto;
+}
+
+canvas-sketch {
+    height: 70vh;
+    margin: 40px auto 20px 0;
+    overflow: hidden;
+    background: #fff;
+    border-radius: 3px;
+}
+
+div.tutorial {
+    border-radius: 3px;
+    display: inline-block;
+    margin: 40px auto 20px 0;
+    width: 20%;
+    height: 76vh;
+    float: left;
+    padding: 10px; 
+    color: #fff;
+    line-height: 2em;
+}
+
+div.drawingSection {
+    display: inline-block;
+    width: 50%;
+    margin: 0 auto 0 auto;
+}
+
+div.textSection {
+    border-radius: 3px;
+    display: inline-block;
+    margin: 40px 0 20px auto;
+    width: 20%;
+    height: 76vh;
+    float: right;
+    padding: 10px;
+    color: #fff;
+    line-height: 2em;
+}
+
+div#controls {
+    margin: 40px auto 20px auto;
+    text-align: left;
+}
+
+paper-button {
+    display: inline-block;
+    width: 40%;
+    color: #fff;
+}
+
+paper-button:first-of-type {
+    float: left;
+}
+
+paper-button:last-of-type {
+    float: right;
+}
+
